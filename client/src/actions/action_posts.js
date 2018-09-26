@@ -26,13 +26,15 @@ const _removePost = ({ id } = {}) => ({
     id
 });
 
+
 export const removePost = ({ id } = {}) => {
     return (dispatch) => {
         return axios.delete(`posts/${id}`).then(() => {
             dispatch(_removePost({ id }));
-        });
-    };
+        })
+    }
 };
+
 
 const _editPost = (id, updates) => ({
     type: 'EDIT_POST',

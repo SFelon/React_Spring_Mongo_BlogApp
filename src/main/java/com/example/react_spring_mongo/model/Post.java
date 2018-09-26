@@ -4,6 +4,8 @@ package com.example.react_spring_mongo.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.Date;
+
 @Document(collection = "posts")
 public class Post {
 
@@ -12,6 +14,9 @@ public class Post {
 
     private String postTitle;
     private String postContent;
+
+    private Date createdDate = new Date();
+    private Date lastModified = new Date();
 
     public Post() {
     }
@@ -40,12 +45,30 @@ public class Post {
         this.postContent = postContent;
     }
 
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getLastModified() {
+        return lastModified;
+    }
+
+    public void setLastModified(Date lastModified) {
+        this.lastModified = lastModified;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
                 "id='" + id + '\'' +
                 ", postTitle='" + postTitle + '\'' +
                 ", postContent='" + postContent + '\'' +
+                ", createdDate=" + createdDate +
+                ", lastModified=" + lastModified +
                 '}';
     }
 }

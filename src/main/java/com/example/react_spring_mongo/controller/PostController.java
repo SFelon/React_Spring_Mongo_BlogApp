@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,6 +47,7 @@ public class PostController {
             Post savedPost = postData.get();
             savedPost.setPostTitle(post.getPostTitle());
             savedPost.setPostContent(post.getPostContent());
+            savedPost.setLastModified(new Date());
 
             Post updatedPost = postRepository.save(savedPost);
             return new ResponseEntity<>(updatedPost, HttpStatus.OK);

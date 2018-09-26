@@ -7,11 +7,11 @@ export default class Footer extends React.Component {
   
     render() {
     return (
-      <footer id="main-footer" class="bg-dark text-white mt-5 p-5">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <p class="lead text-center">
+      <footer id="main-footer" className="bg-dark text-white mt-5 p-5">
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <p className="lead text-center">
                 Copyright &copy; <span>{this.getYear()} </span>
                 Sebastian Felon
               </p>
