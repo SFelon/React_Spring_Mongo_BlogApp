@@ -1,6 +1,8 @@
 package com.example.react_spring_mongo.model;
 
 
+import com.example.react_spring_mongo.services.NextSequenceService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,8 +11,13 @@ import java.util.Date;
 @Document(collection = "posts")
 public class Post {
 
+    @Autowired
+    private NextSequenceService nextSequenceService;
+
     @Id
     private String id;
+
+    private int postId;
 
     private String postTitle;
     private String postContent;
@@ -18,8 +25,6 @@ public class Post {
     private Date createdDate = new Date();
     private Date lastModified = new Date();
 
-    public Post() {
-    }
 
     public String getId() {
         return id;
@@ -27,6 +32,14 @@ public class Post {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public int getPostId() {
+        return postId;
+    }
+
+    public void setPostId(int postId) {
+        this.postId = postId;
     }
 
     public String getPostTitle() {
@@ -65,6 +78,7 @@ public class Post {
     public String toString() {
         return "Post{" +
                 "id='" + id + '\'' +
+                ", postId=" + postId +
                 ", postTitle='" + postTitle + '\'' +
                 ", postContent='" + postContent + '\'' +
                 ", createdDate=" + createdDate +

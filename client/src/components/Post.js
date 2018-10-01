@@ -2,15 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-
-var postNumber = 0;
-const postNumberIncrement = () => {
-    return ++postNumber;
-};
-
 const Post = (post) => (
     <tr>
-        <td>{postNumberIncrement()}</td>
+        <td>{post.postId}</td>
         <td>{post.postTitle}</td>
         <td> Kategoria </td>
         <td>{new Date(post.createdDate).toISOString().slice(0, 10)}</td>

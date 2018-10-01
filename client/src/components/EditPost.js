@@ -69,7 +69,7 @@ class EditPost extends Component {
 
 const mapStateToProps = (state, props) => {
   return {
-    post: state.find(post => post.id === props.match.params.id)
+    post: state.posts.find(post => post.id === props.match.params.id)
   };
 };
 

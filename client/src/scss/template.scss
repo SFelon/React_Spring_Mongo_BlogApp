@@ -1,0 +1,6 @@
+@import 'node_modules/bootstrap/scss/modal';
+
+.modal.show{
+	display: block !important;
+	background-color: rgba(black, 0.8);
+}

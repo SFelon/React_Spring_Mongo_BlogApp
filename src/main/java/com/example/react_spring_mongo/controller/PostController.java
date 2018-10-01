@@ -2,6 +2,7 @@ package com.example.react_spring_mongo.controller;
 
 import com.example.react_spring_mongo.model.Post;
 import com.example.react_spring_mongo.repository.PostRepository;
+import com.example.react_spring_mongo.services.NextSequenceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,6 +19,9 @@ public class PostController {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private NextSequenceService nextSequenceService;
 
     @GetMapping("/posts")
     public List<Post> getAllPosts() {
@@ -36,6 +40,7 @@ public class PostController {
 
     @PostMapping("/posts")
     public Post createPost(@Valid @RequestBody Post post) {
+        post.setPostId(nextSequenceService.getNextSequence("postId"));
         return postRepository.save(post);
     }
 

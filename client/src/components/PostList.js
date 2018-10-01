@@ -28,7 +28,7 @@ const PostList = props => (
 
 const mapStateToProps = state => {
   return {
-    posts: state
+    posts: state.posts
   };
 };
 
